@@ -5,6 +5,7 @@
 #define MAX_X 40
 #define MAX_Y 30
 #define MAXBULLET 10
+#define MAX 30
 
 
 //소스파일 > C++  > 파일명.c로 C파일 만들기
@@ -37,10 +38,6 @@ void init() { //콘솔창 크기 지정, 제목 변경, 커서 숨기는 함수
 	SetConsoleCursorInfo(consolHandle, &ConsoleCursor);
 }
 
-struct {
-	int exist;
-	int bx, by;
-}Bullet[MAXBULLET];
 
 void main() {
 	init();
@@ -53,6 +50,11 @@ void main() {
 	bool bullet = false; //총알이 나타나느 여부에 대해 판다.
 	//스페이스바를 누르면 총알 발사, 총알을 플레이어의 y-1 좌표에서 등장
 
+	int ex[MAX] = { 0, };
+	int ey[MAX] = { 0, }; //적의 x,y좌표 배열 초기화
+	bool enemy[MAX] = { false, }; //적의 출현 여부 배열 초기화
+	srand(time(NULL));
+	
 	//특수문자와 영어는 한글자가 한 칸, 한글은 한 글자가 2칸취급 받는 듯 하다
 	//이동을 반복하기 위해서는 while문이 필요 
 
@@ -99,9 +101,18 @@ void main() {
 		//플레이어 위치 출력
 		//gotoxy(x, y);
 		//printf("■");
+		
+		for (i = 0; i < MAX; i++) //반복을 한 번 할 때마다 하나의 별이 생성
+		{
+			if (!enemy[i]) {
+				ex[i] = (rand() % 30) * 2;
+				ey[i] = 1;
+				enemy[i] = true;
+				break; //모든 배열의 값이 true가 되지 않도록 if문을 종료하고 다시 반복 시작
+			}
+		}
 
-
-		if (GetAsyncKeyState(VK_LEFT) & 0x8000)
+		if (GetAsyncKeyState(VK_LEFT) & 0x8000) //왼쪽키&계속 누르고 있다면
 		{
 			x--;
 			if (x < 0) x = 0;
@@ -119,11 +130,24 @@ void main() {
 				bullet = true;
 			}
 		}
-		if (bullet) {
+		if (bullet) { //플레이어의 총알
 			gotoxy(bx, by);
 			printf("↑");
 			by--; //y좌표가 계속 감소하므로 총알이 발사되어 이동하는 것처럼 보임
 			if (by < 0) bullet = false; //총알이 천장에 도착했다면 총알을 숨김
+		}
+
+		for (i = 0; i < MAX; i++) { //for문을 통해서 각 배열의 원소별로 발사 모습 출력
+			if (enemy[i]) { //에너미가 활성화 되었다면(enemy = true)
+				gotoxy(ex[i], ey[i]); //설정된 적좌표(랜덤 좌표)
+				printf("☆"); //총알을 출력하고
+				ey[i]++; //y좌표 증가(아래로 내려오는 효과)
+				if (ey[i] >= y - 1) //플레이어의 y좌표 -1 일때
+				{
+					enemy[i] = false;
+				} //enemy=false가 되어 화면상에서 보이지 않게 함.
+			  //수정 필요: 플레이어 총알하고 적총알하고 같이 이동하는 경우가 있음
+			}//프로그램이 구동될 때 true가 몇 개 일지 모르니 체크하는 것이 필요하다.(위의 if문)
 		}
 
 		//플레이어 위치 출력
