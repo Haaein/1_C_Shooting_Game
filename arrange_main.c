@@ -1,3 +1,4 @@
+#적의 좌표 지정과 활성화 설정을 배열로 한 코드
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
