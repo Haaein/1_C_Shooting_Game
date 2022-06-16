@@ -59,47 +59,17 @@ void main() {
 	//특수문자와 영어는 한글자가 한 칸, 한글은 한 글자가 2칸취급 받는 듯 하다
 	//이동을 반복하기 위해서는 while문이 필요 
 
-	//while (1) {
-	//	gotoxy(0, MAX_Y + 1); //x,y좌표 출력 위치 지정
-	//	printf("X 좌표 : %d\n", x);
-	//	printf("Y 좌표 : %d\n", y);
-	//	//플레이어 위치 출력
-	//	gotoxy(x, y);
-	//	printf("▲");
 
-	//	here = getch();
-
-	//	switch (here) {
-	//	case 224:
-	//		here = getch();
-	//		switch (here) {
-	//		case 75:
-	//			if (x != 0)
-	//				x--;
-	//			break;
-	//		case 77:
-	//			if (x != MAX_X-2)
-	//				x++;
-	//			break;
-	//		default:
-	//			break;
-	//		}
-	//	
-
-	//	default:
-	//		break;
-	//	}
-	//	system("cls"); //화면에 있는 것을 전부 지움
-	//}
 
 	while (1) //영상에서는 미리 정의해 둔 헤더파일에서 함수를 끌어와서쓴다.
 		//영상에서 함수 역할을 설명해주면 그걸 내가 직접 만들어봐야될 듯
-		//아래의 함수는 영상 + 내가 직접 찾은 코드들을 합쳐서 만든 것이다.
+		//아래의 함수는 영상 + 내가 직접 찾은 코드들을 합쳐서 만들어보았다. 
 	{
-		gotoxy(0, MAX_Y + 1); //x,y좌표 출력 위치 지정
-		printf("X 좌표 : %d\n", x);
-		printf("Y 좌표 : %d\n", y);
-		//플레이어 위치 출력
+		gotoxy(0, MAX_Y + 1); //플레이어의 x,y좌표 출력 위치 지정 
+		printf("X 좌표 : %d\n", x); //플레이어의 x좌표 출력
+		printf("Y 좌표 : %d\n", y); //플레이어의 y좌표 출력
+		
+		//플레이어 출력
 		//gotoxy(x, y);
 		//printf("■");
 		
@@ -115,15 +85,15 @@ void main() {
 
 		if (GetAsyncKeyState(VK_LEFT) & 0x8000) //왼쪽키&계속 누르고 있다면
 		{
-			x--;
-			if (x < 0) x = 0;
+			x--; //플레이어가 왼쪽으로 이동
+			if (x < 0) x = 0; //화면끝으로 이동시 이동할 수 없게 위치를 고정시킴
 		}
-		if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
+		if (GetAsyncKeyState(VK_RIGHT) & 0x8000) //오른쪽 키&계속 누르고 있다면
 		{
-			x++;
-			if (x > MAX_X - 2) x = MAX_X - 2;
+			x++; //플레이어가 오른쪽으로 이동
+			if (x > MAX_X - 2) x = MAX_X - 2; //화면끝에 도달시 이동할 수 없게 위치를 고정
 		}
-		if (GetAsyncKeyState(VK_SPACE) & 0x8000)
+		if (GetAsyncKeyState(VK_SPACE) & 0x8000) //스페이스 바를 눌렀을 때
 		{
 			if (!bullet) { //발사 중인 총알이 없을 때
 				bx = x;
