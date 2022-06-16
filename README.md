@@ -7,7 +7,8 @@ https://www.youtube.com/playlist?list=PLGi8elnlkqBOul8ad3jnEXS3Jye1PZbjW 해당 
 
 
 #만든 목적
-C언어를 완전히 익히고 싶었지만 단순히 교재를 따라하는 것으로는 금방 흥미를 잃을 것 같았다.
+
+ C언어를 완전히 익히고 싶었지만 단순히 교재를 따라하는 것으로는 금방 흥미를 잃을 것 같았다.
 
 
 #주 기능 소개
