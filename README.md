@@ -2,7 +2,7 @@
 
 개인 개발 공부 겸 앱들 소프트웨어 경진대회 출품작
 
-https://www.youtube.com/playlist?list=PLGi8elnlkqBOul8ad3jnEXS3Jye1PZbjW 해당 주소의 C언어 강좌 콘솔창 게임 만들기 1~7편을 보면서 프로젝트를 진행했다. 영상에서는 C++과 사전에 만들어둔 헤더파일을 사용하였지만 해당 프로젝트는 C언어로 진행하였다.
+https://www.youtube.com/playlist?list=PLGi8elnlkqBOul8ad3jnEXS3Jye1PZbjW 해당 주소의 C언어 강좌 콘솔창 게임 만들기 1~7편을 보면서 프로젝트를 진행했다. 영상에서는 C++과 사전에 만들어둔 헤더파일을 사용하였지만 이 프로젝트는 영상에서 사용한 헤더파일 없이 C언어로 진행했다.
 
 main.c가 3개 존재하는데 3개 중의 arrang_main.c는 배열을 이용해서 적을 출력하는 코드를 작성한 버전이고 struct_main.c는 구조체를 이용해 적을 출력하는 코드를 작성한 것이다. final_main.c가 앞선 두 가지의 main.c의 과정을 거쳐 완성된 최종코드이다.
 
