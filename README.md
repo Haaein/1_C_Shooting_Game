@@ -1,6 +1,6 @@
 # 1_C_StarAvoid_Game
 
-개인 개발 공부 겸 앱들 소프트웨어 경진대회 출품작
+개인 개발 공부
 
 https://www.youtube.com/playlist?list=PLGi8elnlkqBOul8ad3jnEXS3Jye1PZbjW 해당 주소의 C언어 강좌 콘솔창 게임 만들기 1~7편을 보면서 프로젝트를 진행했다. 영상에서는 C++과 사전에 만들어둔 헤더파일을 사용하였지만 이 프로젝트는 영상에서 사용한 헤더파일 없이 C언어로 진행했다.
 
