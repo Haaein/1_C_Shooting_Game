@@ -62,8 +62,6 @@ struct ST_OBJECT
 struct ST_OBJECT stEnemy[MAX]; //에너미 전용 구조체 배열
 struct ST_OBJECT stPlayer; //플레이어전용 구조체 변수
 
-
-//별을 만드는 함수 = Spawn();
 void Spawn(void) {
 	for (int i = 0; i < MAX; i++) //반복을 한 번 할 때마다 하나의 별이 생성
 	{
@@ -96,7 +94,6 @@ int EnemyProcess(void) //count 반환을 위해 int 함수로 선언
 			{
 				stEnemy[i].bActive = false;
 			} //bActive=false가 되어 화면상에서 보이지 않게 함.
-		  //수정 필요: 플레이어 총알하고 적총알하고 같이 이동하는 경우가 있음
 		}//프로그램이 구동될 때 true가 몇 개 일지 모르니 체크하는 것이 필요하다.(if문)
 	}
 	return count; //플레이어가 충돌시 생성되는 별(적)의 개수 = 0, count=0이 된다. -> 함수가 종료된다.
